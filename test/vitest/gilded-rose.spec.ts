@@ -25,18 +25,33 @@ describe('Gilded Rose', () => {
     expect(items[0].quality).toBe(50);
   });
 
-  it("Sulfuras, étant un objet légendaire, n'a pas de date de péremption et ne perd jamais en qualité", () => {
-    const gildedRose = new GildedRose([new Item('Sulfuras, Hand of Ragnaros', 1000, 50)]);
-    const items = gildedRose.updateQuality();
-    expect(items[0].quality).toBe(50);
-    expect(items[0].sellIn).toBe(1000);
 
+  it("Sulfuras, étant un objet légendaire, n'a pas de date de péremption et ne perd jamais en qualité", () => {
+    const gildedRose = new GildedRose([new Item('Sulfuras, Hand of Ragnaros', 1000, 80)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).toBe(80);
+    expect(items[0].sellIn).toBe(1000);
   });
 
 
+  it('"Backstage passes", comme le "Aged Brie", augmente sa qualité (`quality`) plus le temps passe (`sellIn`) ; La qualité augmente de 2 quand il reste 10 jours ou moins "', () => {
+    //et de 3 quand il reste 5 jours ou moins, mais la qualité tombe à 0 après le concert.
+    const gildedRose2 = new GildedRose([new Item('Backstage passes to a TAFKAL80ETC concert', 10, 25)]);
+    const item2 = gildedRose2.updateQuality();
+    expect(item2[0].quality).toBe(27);
+    // const gildedRose3 = new GildedRose([new Item('Backstage passes to a TAFKAL80ETC concert', 5, 27)]);
+    // const item3 = gildedRose3.updateQuality();
+    // expect(item3[0].quality).toBe(30);
+    // const gildedRose4 = new GildedRose([new Item('Backstage passes to a TAFKAL80ETC concert', 0, 27)]);
+    // const item4 = gildedRose4.updateQuality();
+    // expect(item4[0].quality).toBe(0);
+  });
 
 
 });
+
+
+
 
 
 
