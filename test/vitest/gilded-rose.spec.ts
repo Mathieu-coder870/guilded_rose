@@ -16,6 +16,8 @@ describe('Gilded Rose', () => {
   });
 
 });
+
+
 describe('Gilded Rose', () => {
   it("Aged Brie augmente sa qualité (`quality`) plus le temps passe", () => {
     const gildedRose = new GildedRose([new Item('Aged Brie', 0, 30)]);
@@ -23,6 +25,9 @@ describe('Gilded Rose', () => {
     expect(items[0].quality).toBeGreaterThan(30);
   });
 });
+
+
+
 // describe("Cas valeur péremption dépassé ", () => {
 // it('qualite se dégrade 2 fois plus rapidement')
 // const gildedRose = new GildedRose([new Item('foo', 0, 0)]);
