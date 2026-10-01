@@ -25,7 +25,20 @@ describe('Gilded Rose', () => {
     expect(items[0].quality).toBe(50);
   });
 
+  it("Sulfuras, étant un objet légendaire, n'a pas de date de péremption et ne perd jamais en qualité", () => {
+    const gildedRose = new GildedRose([new Item('Sulfuras, Hand of Ragnaros', 1000, 50)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).toBe(50);
+    expect(items[0].sellIn).toBe(1000);
+
+  });
+
+
+
+
 });
+
+
 
 
 
