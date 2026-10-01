@@ -6,31 +6,29 @@ describe('Gilded Rose', () => {
     const items = gildedRose.updateQuality();
     expect(items[0].quality).toBe(46);
   });
-});
 
-
-describe('Gilded Rose', () => {
   it("La qualité d'un produit ne peut jamais être négative", () => {
-    const item1 = new Item('foo', 0, -1);
-    expect(item1.quality).toBeNull;
+    const gildedRose = new GildedRose([new Item('foo', 0, 0)]);
+    const item = gildedRose.updateQuality();
+    expect(item[0].quality).toBe(0);
   });
 
-});
-
-
-describe('Gilded Rose', () => {
   it("Aged Brie augmente sa qualité (`quality`) plus le temps passe", () => {
     const gildedRose = new GildedRose([new Item('Aged Brie', 0, 30)]);
     const items = gildedRose.updateQuality();
     expect(items[0].quality).toBeGreaterThan(30);
   });
+
+  it("La qualité d'un produit n'est jamais de plus de 50", () => {
+    const gildedRose = new GildedRose([new Item('Aged Brie', 0, 50)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).toBe(50);
+  });
+
 });
 
 
 
-// describe("Cas valeur péremption dépassé ", () => {
-// it('qualite se dégrade 2 fois plus rapidement')
-// const gildedRose = new GildedRose([new Item('foo', 0, 0)]);
 
 
-// });
+
