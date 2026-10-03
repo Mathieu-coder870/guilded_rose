@@ -55,6 +55,12 @@ describe('Gilded Rose', () => {
     expect(item4[0].quality).toBe(0);
   });
 
+  it('"les éléments "Conjured" voient leur qualité se dégrader de deux fois plus vite"', () => {
+    const gildedRose5 = new GildedRose([new Item('Conjured', 0, 24)]);
+    const item5 = gildedRose5.updateQuality();
+    expect(item5[0].quality).toBe(22);
+  });
+
 
 });
 
